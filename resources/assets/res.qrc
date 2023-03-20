@@ -1,0 +1,8 @@
+<RCC>
+  <qresource prefix="icons">
+    <file>icons/desktop-1920x1080.jpg</file>
+    <file>icons/folder.png</file>
+    <file>icons/upload.png</file>
+    <file>icons/refresh-button.png</file>
+  </qresource>
+</RCC>
