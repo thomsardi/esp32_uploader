@@ -3,6 +3,8 @@ import threading
 import esptool
 import csv
 
+from ..bin_files.definition import BIN_DIR
+
 class EspUploader(threading.Thread, QtCore.QObject) :
     isDone = QtCore.pyqtSignal(str, int)
     def __init__(self) -> None:
@@ -15,8 +17,8 @@ class EspUploader(threading.Thread, QtCore.QObject) :
         self.__chip = "esp32"
 
         # self.__bootloaderPath = "bin/bootloader.bin"
-        self.__bootAppPath = "bin/boot_app0.bin"
-        self.__partitionPath = "bin/partition"
+        self.__bootAppPath = BIN_DIR + "\\boot_app0.bin"
+        self.__partitionPath = ""
         self.__firmwarePath = ""
         self.__systemPath = ""
         
@@ -87,7 +89,7 @@ class EspUploader(threading.Thread, QtCore.QObject) :
         print(commandToSend)
         try :
             # print(commandToSend)
-            # esptool.main(command)
+            esptool.main(command)
             self.isDone.emit(portName, 1)
         except :
             self.isDone.emit(portName, 0)

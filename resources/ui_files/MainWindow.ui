@@ -6,12 +6,19 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>238</width>
-    <height>656</height>
+    <width>255</width>
+    <height>744</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Uploader</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="../assets/res.qrc">
+    <normaloff>:/icons/icons/uploader.png</normaloff>:/icons/icons/uploader.png</iconset>
+  </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="autoFillBackground">
@@ -53,7 +60,11 @@
           </widget>
          </item>
          <item row="3" column="0">
-          <widget class="QComboBox" name="portComboBox"/>
+          <widget class="QComboBox" name="portComboBox">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+          </widget>
          </item>
          <item row="3" column="1">
           <widget class="QPushButton" name="refreshBtn">
@@ -129,6 +140,9 @@
              <property name="styleSheet">
               <string notr="true"/>
              </property>
+             <property name="placeholderText">
+              <string>./bootloader.bin</string>
+             </property>
             </widget>
            </item>
            <item>
@@ -170,6 +184,9 @@
             <widget class="QLineEdit" name="partitionLineEdit">
              <property name="styleSheet">
               <string notr="true"/>
+             </property>
+             <property name="placeholderText">
+              <string>./partition.bin</string>
              </property>
             </widget>
            </item>
@@ -213,6 +230,9 @@
              <property name="styleSheet">
               <string notr="true"/>
              </property>
+             <property name="placeholderText">
+              <string>./firmware.bin</string>
+             </property>
             </widget>
            </item>
            <item>
@@ -251,9 +271,15 @@
          <item>
           <layout class="QHBoxLayout" name="horizontalLayout_6">
            <item>
-            <widget class="QLineEdit" name="filesystemlineEdit">
+            <widget class="QLineEdit" name="filesystemLineEdit">
+             <property name="autoFillBackground">
+              <bool>false</bool>
+             </property>
              <property name="styleSheet">
               <string notr="true"/>
+             </property>
+             <property name="placeholderText">
+              <string>./littlefs.bin</string>
              </property>
             </widget>
            </item>
@@ -310,6 +336,19 @@
         </layout>
        </item>
        <item>
+        <spacer name="verticalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
         <widget class="QLabel" name="label">
          <property name="font">
           <font>
@@ -324,20 +363,56 @@
         </widget>
        </item>
        <item>
-        <widget class="QTextBrowser" name="terminalTextBrowser"/>
+        <widget class="QPlainTextEdit" name="terminalPlainText">
+         <property name="autoFillBackground">
+          <bool>true</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPlainTextEdit {
+	color: rgb(81, 197, 4);
+}</string>
+         </property>
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+        </widget>
        </item>
        <item>
-        <spacer name="verticalSpacer">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>40</height>
-          </size>
-         </property>
-        </spacer>
+        <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,24">
+         <item>
+          <widget class="QPushButton" name="clearBtn">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset resource="../assets/res.qrc">
+             <normaloff>:/icons/icons/eraser.png</normaloff>:/icons/icons/eraser.png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>24</width>
+             <height>24</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_2">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeType">
+            <enum>QSizePolicy::Expanding</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
        </item>
       </layout>
      </widget>

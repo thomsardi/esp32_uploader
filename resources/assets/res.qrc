@@ -1,5 +1,7 @@
 <RCC>
   <qresource prefix="icons">
+    <file>icons/uploader.png</file>
+    <file>icons/eraser.png</file>
     <file>icons/desktop-1920x1080.jpg</file>
     <file>icons/folder.png</file>
     <file>icons/upload.png</file>

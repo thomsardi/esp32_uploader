@@ -1,2 +1,2 @@
 import os
-RESOURCE_DIR = os.path.dirname(os.path.realpath(__file__))
+ASSET_DIR = os.path.dirname(os.path.realpath(__file__))
