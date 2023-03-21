@@ -1,0 +1,4 @@
+esptool==4.5.1
+PyQt5==5.15.9
+pyqt5ac==1.2.1
+pyserial==3.5
