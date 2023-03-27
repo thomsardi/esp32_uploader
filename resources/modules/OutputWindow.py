@@ -1,7 +1,7 @@
-import PyQt5.QtCore as qtc
+from PyQt5 import QtCore
 
-class OutputWindow(qtc.QObject) :
-    isDataAvailable = qtc.pyqtSignal(str)
+class OutputWindow(QtCore.QObject) :
+    isDataAvailable = QtCore.pyqtSignal(str)
     def __init__(self) :
         super().__init__()
 

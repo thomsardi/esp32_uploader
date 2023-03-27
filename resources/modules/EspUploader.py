@@ -14,7 +14,7 @@ class EspUploader(threading.Thread, QtCore.QObject) :
         self.daemon = True
         self.__port = ""
         self.__baudRate = 460800
-        self.__chip = "esp32"
+        self.__chip = "auto"
 
         # self.__bootloaderPath = "bin/bootloader.bin"
         self.__bootAppPath = BIN_DIR + "\\boot_app0.bin"
@@ -86,13 +86,21 @@ class EspUploader(threading.Thread, QtCore.QObject) :
             command.extend([self.__systemAddress, systemPath])
             commandToSend = ' '.join(command)
 
-        print(commandToSend)
+        # print(commandToSend)
         try :
             # print(commandToSend)
             esptool.main(command)
             self.isDone.emit(portName, 1)
         except :
             self.isDone.emit(portName, 0)
+
+    @property
+    def chip(self) :
+        return self.__chip
+
+    @chip.setter
+    def chip(self, chip) :
+        self.__chip = chip
 
     @property
     def port(self) :

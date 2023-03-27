@@ -3,6 +3,7 @@ import sys
 import os
 from pathlib import Path
 from PyQt5 import QtCore, QtGui, QtWidgets
+from resources.definition import RESOURCE_DIR
 from resources.ui_files.definition import UI_FILE_DIR
 from resources.ui_py.definition import UI_PY_DIR
 from resources.assets.definition import ASSET_DIR
@@ -10,6 +11,9 @@ from resources.bin_files.definition import BIN_DIR
 
 # print(addPath)
 sys.path.append(ASSET_DIR)
+# print(ASSET_DIR)
+# sys.path.append(RESOURCE_DIR)
+# print(RESOURCE_DIR)
 
 def convertUi() :
     ioPaths = [
@@ -121,7 +125,6 @@ class MainScreen(QtWidgets.QMainWindow) :
         self.ui.filesystemLineEdit.setText(dir[0])
     
     def methodComboBoxIndexChanged(self) :
-        print("method index changed")
         index = self.ui.methodComboBox.currentIndex()
         if (index <= 0) :
             self.ui.portComboBox.setDisabled(True)
